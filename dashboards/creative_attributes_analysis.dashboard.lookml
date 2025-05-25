@@ -165,3 +165,32 @@
     col: 0
     width: 24
     height: 8
+
+  - title: "Creative Attributes Summary"
+    name: attributes_summary
+    model: creative_performance
+    explore: creative_performance
+    type: looker_grid
+    fields: [creative_attributes.format, creative_attributes.creative_count, creative_attributes.format_performance_score,
+             creative_performance.total_conversions, creative_performance.ctr, creative_performance.cpa]
+    sorts: [creative_performance.total_conversions desc]
+    limit: 500
+    show_view_names: false
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: true
+    header_text_alignment: left
+    header_font_size: '12'
+    rows_font_size: '12'
+    listen:
+      date_range: creative_performance.date_date
+    row: 16
+    col: 0
+    width: 24
+    height: 6

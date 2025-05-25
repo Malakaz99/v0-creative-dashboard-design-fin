@@ -1,15 +1,14 @@
 project_name: "isracard_creative_analytics"
 
+# Include all LookML files
+include: "/models/*.model.lkml"
+include: "/views/*.view.lkml" 
+include: "/dashboards/*.dashboard.lookml"
+
 # Use local_dependency: To enable referencing of another project
-# on this instance with include: statements
 local_dependency: {
   project: "isracard_creative_analytics"
 }
-
-# Include all LookML files
-include: "/models/*.model.lkml"
-include: "/views/*.view.lkml"
-include: "/dashboards/*.dashboard.lookml"
 
 constant: VIS_LABEL {
   value: "Isracard Creative Analytics"

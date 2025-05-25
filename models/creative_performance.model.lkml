@@ -61,3 +61,21 @@ explore: live_campaigns {
     relationship: many_to_one
   }
 }
+
+explore: outlier_analysis {
+  label: "Outlier Detection"
+  description: "Automated detection of performance outliers"
+  from: creative_performance
+  
+  join: creative_attributes {
+    type: left_outer
+    sql_on: ${outlier_analysis.creative_id} = ${creative_attributes.creative_id} ;;
+    relationship: one_to_one
+  }
+  
+  join: platforms {
+    type: left_outer
+    sql_on: ${outlier_analysis.platform_id} = ${platforms.platform_id} ;;
+    relationship: many_to_one
+  }
+}

@@ -31,4 +31,9 @@ view: platforms {
       END ;;
     hidden: yes
   }
+  
+  measure: platform_count {
+    type: count
+    label: "Number of Platforms"
+  }
 }

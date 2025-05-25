@@ -15,23 +15,65 @@
       type: relative_timeframes
       display: inline
     model: creative_performance
-    explore: creative_performance
+    explore: outlier_analysis
     listens_to_filters: []
-    field: creative_performance.date_date
+    field: outlier_analysis.date_date
 
   elements:
+  - title: "Underperforming Creatives Alert"
+    name: underperforming_alert
+    model: creative_performance
+    explore: outlier_analysis
+    type: single_value
+    fields: [outlier_analysis.total_conversions]
+    filters:
+      outlier_analysis.is_outlier: "yes"
+      outlier_analysis.outlier_type: "underperforming"
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    single_value_title: "Underperforming Creatives"
+    value_format: "#,##0"
+    listen:
+      date_range: outlier_analysis.date_date
+    row: 0
+    col: 0
+    width: 6
+    height: 4
+
+  - title: "Top Performers Count"
+    name: top_performers_count
+    model: creative_performance
+    explore: outlier_analysis
+    type: single_value
+    fields: [outlier_analysis.total_conversions]
+    filters:
+      outlier_analysis.is_outlier: "yes"
+      outlier_analysis.outlier_type: "top_performer"
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    single_value_title: "Top Performers"
+    value_format: "#,##0"
+    listen:
+      date_range: outlier_analysis.date_date
+    row: 0
+    col: 6
+    width: 6
+    height: 4
+
   - title: "Underperforming Creatives"
     name: underperforming_creatives
     model: creative_performance
-    explore: creative_performance
+    explore: outlier_analysis
     type: looker_grid
-    fields: [creative_performance.creative_id, creative_performance.creative_name, creative_performance.platform_name,
-             creative_performance.product_name, creative_performance.outlier_type, creative_performance.variance_from_benchmark,
-             creative_performance.total_spend, creative_performance.cpa, creative_performance.quality_score]
+    fields: [outlier_analysis.creative_id, outlier_analysis.creative_name, outlier_analysis.platform_name,
+             outlier_analysis.product_name, outlier_analysis.outlier_type, outlier_analysis.variance_from_benchmark,
+             outlier_analysis.total_spend, outlier_analysis.cpa, outlier_analysis.quality_score]
     filters:
-      creative_performance.is_outlier: "yes"
-      creative_performance.outlier_type: "underperforming"
-    sorts: [creative_performance.total_spend desc]
+      outlier_analysis.is_outlier: "yes"
+      outlier_analysis.outlier_type: "underperforming"
+    sorts: [outlier_analysis.total_spend desc]
     limit: 10
     show_view_names: false
     show_row_numbers: true
@@ -57,12 +99,12 @@
         bold: false
         italic: false
         strikethrough: false
-        fields: [creative_performance.quality_score]
+        fields: [outlier_analysis.quality_score]
       }
     ]
     listen:
-      date_range: creative_performance.date_date
-    row: 2
+      date_range: outlier_analysis.date_date
+    row: 4
     col: 0
     width: 12
     height: 8
@@ -70,15 +112,15 @@
   - title: "Top Performing Creatives"
     name: top_performing_creatives
     model: creative_performance
-    explore: creative_performance
+    explore: outlier_analysis
     type: looker_grid
-    fields: [creative_performance.creative_id, creative_performance.creative_name, creative_performance.platform_name,
-             creative_performance.product_name, creative_performance.variance_from_benchmark,
-             creative_performance.total_spend, creative_performance.cpa, creative_performance.quality_score]
+    fields: [outlier_analysis.creative_id, outlier_analysis.creative_name, outlier_analysis.platform_name,
+             outlier_analysis.product_name, outlier_analysis.variance_from_benchmark,
+             outlier_analysis.total_spend, outlier_analysis.cpa, outlier_analysis.quality_score]
     filters:
-      creative_performance.is_outlier: "yes"
-      creative_performance.outlier_type: "top_performer"
-    sorts: [creative_performance.quality_score desc]
+      outlier_analysis.is_outlier: "yes"
+      outlier_analysis.outlier_type: "top_performer"
+    sorts: [outlier_analysis.quality_score desc]
     limit: 10
     show_view_names: false
     show_row_numbers: true
@@ -104,12 +146,12 @@
         bold: false
         italic: false
         strikethrough: false
-        fields: [creative_performance.quality_score]
+        fields: [outlier_analysis.quality_score]
       }
     ]
     listen:
-      date_range: creative_performance.date_date
-    row: 2
+      date_range: outlier_analysis.date_date
+    row: 4
     col: 12
     width: 12
     height: 8

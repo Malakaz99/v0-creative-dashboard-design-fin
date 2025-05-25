@@ -46,4 +46,9 @@ view: live_campaigns {
     label: "Total Daily Spend (Live)"
     value_format: "$#,##0"
   }
+  
+  measure: all_campaigns_count {
+    type: count
+    label: "Total Campaigns Count"
+  }
 }

@@ -32,4 +32,23 @@ view: audience_segments {
     sql: ${TABLE}.demographic_profile ;;
     label: "Demographic Profile"
   }
+  
+  measure: total_audience_size {
+    type: sum
+    sql: ${audience_size} ;;
+    label: "Total Audience Size"
+    value_format: "#,##0"
+  }
+  
+  measure: audience_count {
+    type: count
+    label: "Number of Audience Segments"
+  }
+  
+  measure: avg_audience_size {
+    type: average
+    sql: ${audience_size} ;;
+    label: "Average Audience Size"
+    value_format: "#,##0"
+  }
 }

@@ -31,4 +31,9 @@ view: products {
     sql: ${TABLE}.product_priority ;;
     label: "Product Priority"
   }
+  
+  measure: product_count {
+    type: count
+    label: "Number of Products"
+  }
 }

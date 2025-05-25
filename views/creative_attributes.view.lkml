@@ -70,4 +70,16 @@ view: creative_attributes {
     label: "Format Performance Score"
     value_format: "0.0"
   }
+  
+  measure: creative_count {
+    type: count
+    label: "Number of Creatives"
+  }
+  
+  measure: avg_video_length {
+    type: average
+    sql: ${video_length_seconds} ;;
+    label: "Average Video Length (Seconds)"
+    value_format: "0.0"
+  }
 }
