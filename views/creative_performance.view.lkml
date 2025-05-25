@@ -213,7 +213,7 @@ view: creative_performance {
     label: "CPA ($)"
     value_format: "$0.00"
     html: 
-      {% if value &lt; 7.0 %}
+      {% if value < 7.0 %}
         <span style="color: #16a34a;">{{ rendered_value }} ↗</span>
       {% else %}
         <span style="color: #dc2626;">{{ rendered_value }} ↘</span>
