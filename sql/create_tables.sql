@@ -28,7 +28,8 @@ CREATE TABLE `isracard_analytics.creative_performance` (
   daily_impressions INT64,
   is_outlier BOOL,
   outlier_type STRING,
-  variance_from_benchmark STRING
+  variance_from_benchmark STRING,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
 );
 
 -- Create creative attributes table
@@ -56,6 +57,17 @@ CREATE TABLE `isracard_analytics.products` (
   product_category STRING,
   target_audience STRING,
   product_priority STRING
+);
+
+-- Create campaigns table
+CREATE TABLE `isracard_analytics.campaigns` (
+  campaign_id STRING,
+  campaign_name STRING,
+  campaign_type STRING,
+  campaign_objective STRING,
+  campaign_start_date DATE,
+  campaign_end_date DATE,
+  campaign_budget FLOAT64
 );
 
 -- Create live campaigns table
