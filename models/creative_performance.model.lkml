@@ -1,4 +1,5 @@
-connection: "creative_analytics_db"
+# Define the database connection to be used for this model.
+connection: "mad_bigquery"
 
 include: "/views/*.view.lkml"
 include: "/dashboards/*.dashboard.lookml"
