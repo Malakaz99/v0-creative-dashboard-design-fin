@@ -15,7 +15,7 @@
     ui_config:
       type: checkboxes
       display: popover
-    model: creative_performance
+    model: isracard_creative_analytics
     explore: live_campaigns
     listens_to_filters: []
     field: platforms.platform_name
@@ -23,7 +23,7 @@
   elements:
   - title: "Live Campaigns Status"
     name: live_status
-    model: creative_performance
+    model: isracard_creative_analytics
     explore: live_campaigns
     type: single_value
     fields: [live_campaigns.live_campaigns_count]
@@ -41,7 +41,7 @@
 
   - title: "Total Daily Spend (Live)"
     name: daily_spend_live
-    model: creative_performance
+    model: isracard_creative_analytics
     explore: live_campaigns
     type: single_value
     fields: [live_campaigns.total_daily_spend_live]
@@ -59,7 +59,7 @@
 
   - title: "Live Creatives Performance"
     name: live_creatives_table
-    model: creative_performance
+    model: isracard_creative_analytics
     explore: live_campaigns
     type: looker_grid
     fields: [creative_performance.creative_id, creative_performance.creative_name, platforms.platform_name,

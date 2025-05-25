@@ -14,32 +14,29 @@
     ui_config:
       type: relative_timeframes
       display: inline
-    model: creative_performance
-    explore: creative_performance
+    model: isracard_creative_analytics
+    explore: creative_attributes_analysis
     listens_to_filters: []
-    field: creative_performance.date_date
+    field: creative_attributes_analysis.date_date
 
   elements:
   - title: "Format Performance Distribution"
     name: format_distribution
-    model: creative_performance
-    explore: creative_performance
+    model: isracard_creative_analytics
+    explore: creative_attributes_analysis
     type: looker_pie
-    fields: [creative_attributes.format, creative_performance.total_conversions]
-    sorts: [creative_performance.total_conversions desc]
+    fields: [creative_attributes.format, creative_attributes_analysis.total_conversions]
+    sorts: [creative_attributes_analysis.total_conversions desc]
     limit: 500
     value_labels: legend
     label_type: labPer
     inner_radius: 40
-    color_application:
-      collection_id: isracard-colors
-      palette_id: isracard-categorical-0
     series_colors:
       Video: "#0070BA"
       Static: "#E91E63"
       GIF: "#000000"
     listen:
-      date_range: creative_performance.date_date
+      date_range: creative_attributes_analysis.date_date
     row: 0
     col: 0
     width: 8
@@ -47,10 +44,10 @@
 
   - title: "Video Length Performance"
     name: video_length_performance
-    model: creative_performance
-    explore: creative_performance
+    model: isracard_creative_analytics
+    explore: creative_attributes_analysis
     type: looker_column
-    fields: [creative_attributes.video_length, creative_performance.total_conversions, creative_performance.ctr, creative_performance.cpa]
+    fields: [creative_attributes.video_length, creative_attributes_analysis.total_conversions, creative_attributes_analysis.ctr, creative_attributes_analysis.cpa]
     filters:
       creative_attributes.format: "Video"
     sorts: [creative_attributes.video_length_seconds]
@@ -82,11 +79,12 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    color_application:
-      collection_id: isracard-colors
-      palette_id: isracard-categorical-0
+    series_colors:
+      creative_attributes_analysis.total_conversions: "#0070BA"
+      creative_attributes_analysis.ctr: "#E91E63"
+      creative_attributes_analysis.cpa: "#000000"
     listen:
-      date_range: creative_performance.date_date
+      date_range: creative_attributes_analysis.date_date
     row: 0
     col: 8
     width: 8
@@ -94,12 +92,12 @@
 
   - title: "Product Performance Analysis"
     name: product_performance
-    model: creative_performance
-    explore: creative_performance
+    model: isracard_creative_analytics
+    explore: creative_attributes_analysis
     type: looker_grid
-    fields: [creative_performance.product_name, creative_performance.total_conversions, creative_performance.ctr,
-             creative_performance.cvr, creative_performance.cpa, creative_performance.quality_score]
-    sorts: [creative_performance.total_conversions desc]
+    fields: [creative_attributes_analysis.product_name, creative_attributes_analysis.total_conversions, creative_attributes_analysis.ctr,
+             creative_attributes_analysis.cvr, creative_attributes_analysis.cpa, creative_attributes_analysis.quality_score]
+    sorts: [creative_attributes_analysis.total_conversions desc]
     limit: 500
     show_view_names: false
     show_row_numbers: true
@@ -115,7 +113,7 @@
     header_font_size: '12'
     rows_font_size: '12'
     listen:
-      date_range: creative_performance.date_date
+      date_range: creative_attributes_analysis.date_date
     row: 0
     col: 16
     width: 8
@@ -123,11 +121,11 @@
 
   - title: "Device Performance Comparison"
     name: device_performance
-    model: creative_performance
-    explore: creative_performance
+    model: isracard_creative_analytics
+    explore: creative_attributes_analysis
     type: looker_column
-    fields: [creative_performance.device_type, creative_performance.total_conversions, creative_performance.ctr, creative_performance.cvr]
-    sorts: [creative_performance.total_conversions desc]
+    fields: [creative_attributes_analysis.device_type, creative_attributes_analysis.total_conversions, creative_attributes_analysis.ctr, creative_attributes_analysis.cvr]
+    sorts: [creative_attributes_analysis.total_conversions desc]
     limit: 500
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -135,7 +133,6 @@
     show_y_axis_labels: true
     show_y_axis_ticks: true
     y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
     show_x_axis_label: true
     show_x_axis_ticks: true
     y_axis_scale_mode: linear
@@ -156,11 +153,12 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    color_application:
-      collection_id: isracard-colors
-      palette_id: isracard-categorical-0
+    series_colors:
+      creative_attributes_analysis.total_conversions: "#0070BA"
+      creative_attributes_analysis.ctr: "#E91E63"
+      creative_attributes_analysis.cvr: "#000000"
     listen:
-      date_range: creative_performance.date_date
+      date_range: creative_attributes_analysis.date_date
     row: 8
     col: 0
     width: 24
@@ -168,12 +166,12 @@
 
   - title: "Creative Attributes Summary"
     name: attributes_summary
-    model: creative_performance
-    explore: creative_performance
+    model: isracard_creative_analytics
+    explore: creative_attributes_analysis
     type: looker_grid
     fields: [creative_attributes.format, creative_attributes.creative_count, creative_attributes.format_performance_score,
-             creative_performance.total_conversions, creative_performance.ctr, creative_performance.cpa]
-    sorts: [creative_performance.total_conversions desc]
+             creative_attributes_analysis.total_conversions, creative_attributes_analysis.ctr, creative_attributes_analysis.cpa]
+    sorts: [creative_attributes_analysis.total_conversions desc]
     limit: 500
     show_view_names: false
     show_row_numbers: true
@@ -189,7 +187,7 @@
     header_font_size: '12'
     rows_font_size: '12'
     listen:
-      date_range: creative_performance.date_date
+      date_range: creative_attributes_analysis.date_date
     row: 16
     col: 0
     width: 24

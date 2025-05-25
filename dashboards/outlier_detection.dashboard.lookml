@@ -14,7 +14,7 @@
     ui_config:
       type: relative_timeframes
       display: inline
-    model: creative_performance
+    model: isracard_creative_analytics
     explore: outlier_analysis
     listens_to_filters: []
     field: outlier_analysis.date_date
@@ -22,7 +22,7 @@
   elements:
   - title: "Underperforming Creatives Alert"
     name: underperforming_alert
-    model: creative_performance
+    model: isracard_creative_analytics
     explore: outlier_analysis
     type: single_value
     fields: [outlier_analysis.total_conversions]
@@ -43,7 +43,7 @@
 
   - title: "Top Performers Count"
     name: top_performers_count
-    model: creative_performance
+    model: isracard_creative_analytics
     explore: outlier_analysis
     type: single_value
     fields: [outlier_analysis.total_conversions]
@@ -64,7 +64,7 @@
 
   - title: "Underperforming Creatives"
     name: underperforming_creatives
-    model: creative_performance
+    model: isracard_creative_analytics
     explore: outlier_analysis
     type: looker_grid
     fields: [outlier_analysis.creative_id, outlier_analysis.creative_name, outlier_analysis.platform_name,
@@ -94,8 +94,6 @@
         value: 2.0
         background_color: "#f8d7da"
         font_color: "#721c24"
-        color_application:
-          collection_id: isracard-colors
         bold: false
         italic: false
         strikethrough: false
@@ -111,7 +109,7 @@
 
   - title: "Top Performing Creatives"
     name: top_performing_creatives
-    model: creative_performance
+    model: isracard_creative_analytics
     explore: outlier_analysis
     type: looker_grid
     fields: [outlier_analysis.creative_id, outlier_analysis.creative_name, outlier_analysis.platform_name,
@@ -141,8 +139,6 @@
         value: 3.0
         background_color: "#d4edda"
         font_color: "#155724"
-        color_application:
-          collection_id: isracard-colors
         bold: false
         italic: false
         strikethrough: false
