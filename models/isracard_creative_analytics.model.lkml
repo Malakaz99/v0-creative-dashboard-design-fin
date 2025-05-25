@@ -1,4 +1,4 @@
-connection: "creative_analytics_db"
+connection: "mad_bigquery"
 
 # Include all view and dashboard files using wildcards
 include: "*.view.lkml"
