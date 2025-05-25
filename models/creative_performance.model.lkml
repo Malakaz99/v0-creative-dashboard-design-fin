@@ -1,4 +1,4 @@
-connection: "creative_analytics_db"
+connection: "mad_bigquery"
 
 include: "/views/*.view.lkml"
 include: "/dashboards/*.dashboard.lookml"

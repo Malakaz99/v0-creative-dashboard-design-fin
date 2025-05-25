@@ -16,7 +16,7 @@ constant: VIS_LABEL {
 }
 
 constant: CONNECTION_NAME {
-  value: "creative_analytics_db"
+  value: "mad_bigquery"
   export: override_optional
 }
 
